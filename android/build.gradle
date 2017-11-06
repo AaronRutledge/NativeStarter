@@ -1,0 +1,42 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+
+buildscript {
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:3.0.0'
+
+        // NOTE: Do not place your application dependencies here; they belong
+        // in the individual module build.gradle files
+    }
+}
+
+// There is a compatability issue with the fbsdk and the most recent versions of the android sdk (required to use Gradle 3.0). 
+// See dev6rodn's comment on June 10th for information on these updates: https://github.com/facebook/react-native-fbsdk/pull/339
+// These changes have been made to all of the referenced build.gradle files
+// A future fbsdk update may fix this, but for now we are locking down the sdk version for fbsdk
+
+project(':react-native-fbsdk') {
+    configurations.all {
+        resolutionStrategy {
+            force 'com.facebook.android:facebook-android-sdk:4.22.1'
+        }
+    }
+}
+
+allprojects {
+    repositories {
+        mavenLocal()
+        jcenter()
+        maven {
+            // All of React Native (JS, Obj-C sources, Android binaries) is installed from npm
+            url "$rootDir/../node_modules/react-native/android"
+        }
+        configurations.all {
+            resolutionStrategy {
+                force 'com.facebook.android:facebook-android-sdk:4.22.1'
+            }
+        }
+    }
+}
