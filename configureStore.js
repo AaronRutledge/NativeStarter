@@ -13,7 +13,7 @@ export default function configureStore(apiUrl) {
       applyMiddleware(sagaMiddleware),
       // other store enhancers if any
     ));
-
+console.log('loaded!!!!!')
 
     // run sagas
     sagaMiddleware.run(rootSaga(apiUrl));
