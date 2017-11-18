@@ -5,7 +5,6 @@
   "scripts": {
     "start": "node node_modules/react-native/local-cli/cli.js start",
     "test": "jest",
-    "postinstall": "rndebugger-open",
     "logconsole": "adb logcat *:S ReactNative:V ReactNativeJS:V"
   },
   "dependencies": {
@@ -22,7 +21,6 @@
     "babel-jest": "21.2.0",
     "babel-preset-react-native": "4.0.0",
     "jest": "21.2.1",
-    "postinstall": "rndebugger-open",
     "react-native-debugger-open": "^0.3.15",
     "react-test-renderer": "16.0.0",
     "remote-redux-devtools": "^0.5.12"
