@@ -26,6 +26,7 @@ project(':react-native-fbsdk') {
     }
 }
 
+
 allprojects {
     repositories {
         mavenLocal()
